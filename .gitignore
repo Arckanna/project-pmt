@@ -1,0 +1,30 @@
+
+# Backend - Java / Maven / IntelliJ
+/backend/target/
+/backend/.idea/
+/backend/.classpath
+/backend/.project
+/backend/.settings/
+/backend/*.iml
+*.log
+
+# Frontend - Node / Angular
+/frontend/node_modules/
+/frontend/dist/
+/frontend/.angular
+/frontend/*.log
+
+# System files
+.DS_Store
+Thumbs.db
+
+# OS-specific
+ehthumbs.db
+Icon?
+Desktop.ini
+
+# Environment files
+.env
+*.env
+
+
