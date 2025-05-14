@@ -4,6 +4,16 @@ Projet d’étude de cas développé dans le cadre du bloc de compétences *Int�
 
 ---
 
+## 🧱 Architecture du projet
+
+Ce dépôt regroupe deux modules principaux :
+- `backend/` – API REST développée avec Spring Boot (Java)
+- `frontend/` – Interface utilisateur à venir développée avec Angular
+
+L'application suit une architecture client-serveur, avec séparation claire des responsabilités entre les couches frontend et backend.
+
+---
+
 ## 🚀 Objectif
 
 Développer une application de gestion de projet permettant :
@@ -25,7 +35,29 @@ Développer une application de gestion de projet permettant :
 
 ---
 
-## 📂 Structure actuelle du projet
+## 🧑‍💻 Installation locale
+
+### Prérequis
+
+- Java 17
+- Maven
+- (optionnel) PostgreSQL pour la base de données
+- Node.js & Angular CLI (pour le frontend à venir)
+
+### Étapes pour lancer le backend
+
+```bash
+cd backend
+mvn spring-boot:run
+```
+
+### Tester avec Postman
+
+Importer la collection `postman/pmt-demo-collection.json` et tester les routes disponibles.
+
+---
+
+## 📂 Structure actuelle du backend
 
 ```
 src/
@@ -38,9 +70,22 @@ src/
 │   └── resources/application.properties
 ```
 
-## 🔄 Évolution prévue
+---
+
+## 📁 Organisation du dépôt
+
+```
+project-pmt/
+├── backend/           # Application Spring Boot
+├── frontend/          # (à venir) Application Angular
+├── postman/           # Collection Postman
+├── README.md
+└── .gitignore
+```
 
 ---
+
+## 🔄 Évolution prévue
 
 Ce projet a pour ambition de devenir une **plateforme complète de gestion de projet collaboratif**. Les prochaines étapes incluent :
 
@@ -57,8 +102,6 @@ Chaque étape sera ajoutée avec des commits dédiés et documentée dans ce `RE
 ---
 
 ## 🧪 Tester l’API actuelle
-
-...
 
 Importer la collection Postman fournie dans le dossier `postman/`  
 Endpoints disponibles :
