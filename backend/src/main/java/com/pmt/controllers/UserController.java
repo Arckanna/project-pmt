@@ -2,14 +2,16 @@ package com.pmt.controllers;
 
 import com.pmt.entities.User;
 import com.pmt.repositories.UserRepository;
-import org.springframework.web.bind.WebDataBinder;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/users")
-@CrossOrigin(origins = "*") // utile si tu appelles depuis Angular plus tard
+@CrossOrigin(origins = "*")
 public class UserController {
 
     private final UserRepository userRepository;
@@ -19,30 +21,31 @@ public class UserController {
         System.out.println(">>> UserController instancié <<<");
     }
 
+    @GetMapping("/ping")
+    public String ping() {
+        return "pong";
+    }
+
+    @PostMapping
+    public User createUser(@RequestBody User user) {
+        System.out.println(">>> POST reçu <<< " + user.getEmail());
+        return userRepository.save(user);
+    }
+
     @GetMapping
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
 
-    @PostMapping
-    public User createUser(@RequestBody User user) {
-        System.out.println("Reçu depuis Postman : " + user);
-        return userRepository.save(user);
-    }
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody Map<String, String> credentials) {
+        String email = credentials.get("email");
+        String password = credentials.get("password");
 
-    @GetMapping("/{id}")
-    public User getUser(@PathVariable Long id) {
-        return userRepository.findById(id).orElseThrow();
-    }
-
-    @GetMapping("/ping")
-    public String ping() {
-        System.out.println(">>> Ping reçu <<<");
-        return "pong";
-    }
-    @InitBinder
-    public void initBinder(WebDataBinder binder) {
-        System.out.println(">>> initBinder exécuté <<<");
+        return userRepository.findAll().stream()
+                .filter(user -> user.getEmail().equals(email) && user.getPassword().equals(password))
+                .findFirst()
+                .map(user -> ResponseEntity.ok().body("Connexion réussie"))
+                .orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Identifiants incorrects"));
     }
 }
-

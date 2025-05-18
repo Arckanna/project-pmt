@@ -1,0 +1,39 @@
+<div class="container vh-100 d-flex justify-content-center align-items-center">
+  <div class="row shadow rounded overflow-hidden w-100" style="max-width: 900px;">
+
+    <!-- Colonne gauche : Connexion -->
+    <div class="col-md-6 p-4 text-white d-flex flex-column justify-content-center align-items-center" style="background: linear-gradient(135deg, #5cc2d0, #31a6bb); min-height: 100%;">
+      <h2 class="mb-3">Heureux de vous revoir</h2>
+      <p class="mb-4">Connectez-vous pour gérer vos projets</p>
+      <a routerLink="/login" class="btn btn-light">Se connecter</a>
+    </div>
+
+    <!-- Colonne droite : Formulaire -->
+    <div class="col-md-6 bg-white p-5">
+      <h2 class="mb-4 text-center">Créer un compte</h2>
+
+      <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+        <div class="mb-3">
+          <label for="username" class="form-label">Nom</label>
+          <input type="text" [(ngModel)]="user.username" name="username" class="form-control" required />
+        </div>
+
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" [(ngModel)]="user.email" name="email" class="form-control" required />
+        </div>
+
+        <div class="mb-3">
+          <label for="password" class="form-label">Mot de passe</label>
+          <input type="password" [(ngModel)]="user.password" name="password" class="form-control" required />
+        </div>
+
+        <button type="submit" class="btn btn-success w-100" [disabled]="userForm.invalid">Créer le compte</button>
+      </form>
+
+      <div *ngIf="success" class="alert alert-success mt-4">
+        ✅ Utilisateur créé avec succès !
+      </div>
+    </div>
+  </div>
+</div>

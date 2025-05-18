@@ -1,0 +1,26 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="card p-4 shadow" style="min-width: 350px;">
+    <h3 class="text-center mb-3">Connexion</h3>
+
+    <form (ngSubmit)="onLogin()">
+      <div class="mb-3">
+        <label>Email</label>
+        <input type="email" [(ngModel)]="email" name="email" class="form-control" required />
+      </div>
+      <div class="mb-3">
+        <label>Mot de passe</label>
+        <input type="password" [(ngModel)]="password" name="password" class="form-control" required />
+      </div>
+      <button class="btn btn-primary w-100" type="submit">Se connecter</button>
+    </form>
+
+    <div *ngIf="message" [ngClass]="{'alert alert-success': success, 'alert alert-danger': !success}" class="mt-3">
+      {{ message }}
+    </div>
+
+    <p class="text-center mt-3">
+      Pas encore inscrit ?
+      <a routerLink="/register" class="text-decoration-none">Créer un compte</a>
+    </p>
+  </div>
+</div>
