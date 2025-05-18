@@ -18,7 +18,7 @@ L'application suit une architecture client-serveur, avec séparation claire des 
 
 Développer une application de gestion de projet permettant :
 - La création d’utilisateurs
-- La gestion des tâches et projets (à venir)
+- La gestion des tâches et projets 
 - Le stockage des données dans une base H2 ou PostgreSQL
 
 ---
@@ -42,7 +42,7 @@ Développer une application de gestion de projet permettant :
 - Java 17
 - Maven
 - (optionnel) PostgreSQL pour la base de données
-- Node.js & Angular CLI (pour le frontend à venir)
+- Node.js & Angular CLI 
 
 ### Étapes pour lancer le backend
 
