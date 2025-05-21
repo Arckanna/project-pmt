@@ -18,6 +18,7 @@
           <p class="card-text">{{ project.description }}</p>
           <p class="card-subtitle mb-2 text-muted">Début : {{ project.startDate | date:'longDate' }}</p>
           <p class="card-subtitle mb-1 text-muted">Rôle : {{ project.role }}</p>
+          <a [routerLink]="['/projects', project.id]" class="btn btn-outline-primary btn-sm mt-2">Voir le projet</a>
         </div>
       </div>
     </div>

@@ -5,6 +5,7 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { ProjectFormComponent } from './components/project-form/project-form.component';
+import { ProjectDetailsComponent } from './components/project-details/project-details.component';
 
 const routes: Routes =[
   { path: 'register', component: UserFormComponent },
@@ -12,6 +13,7 @@ const routes: Routes =[
   { path: 'home', component: HomeComponent },
   { path: 'projects', component: ProjectsComponent },
   { path: 'projects/new', component: ProjectFormComponent },
+  { path: 'projects/:id', component: ProjectDetailsComponent },
   { path: '', redirectTo: 'register', pathMatch: 'full' }
 ];
 

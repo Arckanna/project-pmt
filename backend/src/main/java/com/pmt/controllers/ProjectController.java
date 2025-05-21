@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/projects")
@@ -50,6 +51,13 @@ public class ProjectController {
         return ResponseEntity.ok(result);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Project> getProjectById(@PathVariable Long id) {
+        return projectRepository.findById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
     @PostMapping
     public ResponseEntity<?> createProject(@RequestBody Project project) {
         // 1. Créer le projet
@@ -66,5 +74,32 @@ public class ProjectController {
         projectUserRepository.save(projectUser);
 
         return ResponseEntity.ok(savedProject);
+    }
+
+    @PostMapping("/{projectId}/members")
+    public ResponseEntity<?> addMember(@PathVariable Long projectId, @RequestBody Map<String, String> data) {
+        String email = data.get("email");
+        String roleStr = data.get("role");
+
+        Project project = projectRepository.findById(projectId).orElse(null);
+        User user = userRepository.findByEmail(email).orElse(null);
+
+        if (project == null || user == null) {
+            return ResponseEntity.badRequest().body("Projet ou utilisateur introuvable.");
+        }
+
+        ProjectUser.Role role = ProjectUser.Role.valueOf(roleStr);
+        ProjectUser link = new ProjectUser(user, project, role);
+
+        projectUserRepository.save(link);
+        return ResponseEntity.ok("Utilisateur ajouté avec succès.");
+    }
+
+    @GetMapping("/{projectId}/members")
+    public ResponseEntity<List<ProjectUser>> getProjectMembers(@PathVariable Long projectId) {
+        Project project = projectRepository.findById(projectId).orElse(null);
+        if (project == null) return ResponseEntity.notFound().build();
+
+        return ResponseEntity.ok(projectUserRepository.findByProject(project));
     }
 }
