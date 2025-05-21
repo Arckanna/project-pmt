@@ -18,4 +18,7 @@ export class ProjectService {
   createProject(project: Project) {
     return this.http.post('http://localhost:8080/api/projects', project);
   }
+  getProjectsByUser(email: string): Observable<Project[]> {
+    return this.http.get<Project[]>(`http://localhost:8080/api/projects/user/${email}`);
+  }
 }

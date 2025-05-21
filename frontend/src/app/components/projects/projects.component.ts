@@ -12,7 +12,9 @@ export class ProjectsComponent implements OnInit {
   constructor(private projectService: ProjectService) {}
 
   ngOnInit(): void {
-    this.projectService.getProjects().subscribe({
+    const email = 'valerie@example.com'; // temporairement en dur, à remplacer par localStorage plus tard
+
+    this.projectService.getProjectsByUser(email).subscribe({
       next: (data) => this.projects = data,
       error: (err) => console.error('Erreur chargement projets', err)
     });

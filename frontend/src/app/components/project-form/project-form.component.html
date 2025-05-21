@@ -13,6 +13,10 @@
         <textarea class="form-control" id="description" name="description" rows="3" [(ngModel)]="project.description" required></textarea>
       </div>
 
+      <div class="mb-3">
+        <label for="startDate" class="form-label">Date de début</label>
+        <input type="date" class="form-control" id="startDate" name="startDate" [(ngModel)]="project.startDate" required>
+      </div>
       <button class="btn btn-primary w-100" type="submit" [disabled]="projectForm.invalid">Créer</button>
     </form>
 

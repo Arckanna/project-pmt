@@ -1,9 +1,11 @@
 package com.pmt.entities;
 
 import jakarta.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "projects")
+
 public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -11,6 +13,9 @@ public class Project {
 
     private String name;
     private String description;
+
+    @Column(name = "start_date")
+    private LocalDate startDate;
 
     public Project() {}
 
@@ -27,4 +32,7 @@ public class Project {
 
     public String getDescription() { return description; }
     public void setDescription(String description) { this.description = description; }
+
+    public LocalDate getStartDate() { return startDate; }
+    public void setStartDate(LocalDate startDate) { this.startDate = startDate; }
 }
