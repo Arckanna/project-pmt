@@ -48,3 +48,20 @@ jobs:
         run: |
           npm install
           npm run build -- --configuration=production
+
+      - name: 🐳 Build Docker Images
+        run: |
+          docker build -t backend-pmt ./backend
+          docker build -t frontend-pmt ./frontend
+
+      - name: 🧪 Run containers with docker-compose
+        run: docker-compose up -d
+
+      - name: ✅ Check Backend Health
+        run: |
+          sleep 20
+          curl --fail http://localhost:8080/api/users || (echo "❌ Backend failed to start" && exit 1)
+
+      - name: ✅ Check Frontend Health
+        run: |
+          curl --fail http://localhost:4200 || (echo "❌ Frontend failed to start" && exit 1)
