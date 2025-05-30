@@ -6,16 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="22c401c2-acd0-4f4f-b638-51600cb6e913" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pmt/controllers/ProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pmt/controllers/ProjectController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pmt/controllers/TaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pmt/controllers/TaskController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pmt/entities/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pmt/entities/Task.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pmt/repositories/ProjectUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pmt/repositories/ProjectUserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/components/project-details/project-details.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/components/project-details/project-details.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/components/project-details/project-details.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/components/project-details/project-details.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/models/task.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/models/task.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/services/project.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/services/project.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +44,7 @@
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/FormationIscod/Portfolio",
+    "last_opened_file_path": "D:/FormationIscod/EtudeDeCas/PMT/project-pmt/backend",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -93,6 +83,8 @@
       <workItem from="1747672193248" duration="621000" />
       <workItem from="1747807700366" duration="22721000" />
       <workItem from="1748372303937" duration="197000" />
+      <workItem from="1748588614764" duration="1132000" />
+      <workItem from="1748591393429" duration="1708000" />
     </task>
     <servers />
   </component>

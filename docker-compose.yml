@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    container_name: backend-pmt
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/pmtdb
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
+    networks:
+      - pmt-net
+
+  frontend:
+    build: ./frontend
+    container_name: frontend-pmt
+    ports:
+      - "4200:80"
+    depends_on:
+      - backend
+    networks:
+      - pmt-net
+
+  db:
+    image: postgres:16
+    container_name: postgres-pmt
+    restart: always
+    environment:
+      POSTGRES_DB: pmtdb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - pmt-net
+
+volumes:
+  postgres_data:
+
+networks:
+  pmt-net:
+    driver: bridge
