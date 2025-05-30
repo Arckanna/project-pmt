@@ -1,5 +1,7 @@
 # 📌 PMT Demo – Étude de cas Spring Boot
 
+[![CI - Build and Test](https://github.com/Arckanna/project-pmt/actions/workflows/ci.yml/badge.svg)] (https://github.com/Arckanna/project-pmt/actions/workflows/ci.yml)
+
 Projet d’étude de cas développé dans le cadre du bloc de compétences *Intégration, industrialisation et déploiement de logiciel* – Titre RNCP niveau 7 – IN'TECH / ESIEA.
 
 ---
