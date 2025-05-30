@@ -9,6 +9,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     services:
       postgres:
         image: postgres:15
@@ -54,20 +55,8 @@ jobs:
           docker build -t backend-pmt ./backend
           docker build -t frontend-pmt ./frontend
 
-      - name: 🧪 Run containers with docker-compose v2
-        run: docker-compose up -d
-
-      - name: 🧪 Vérification backend (port 8080)
-        run: |
-          echo "⌛ Attente du backend..."
-          sleep 20
-          curl --fail http://localhost:8080/api/users || (echo "❌ Backend injoignable" && exit 1)
-
-      - name: 🧪 Vérification frontend (port 4200)
-        run: |
-          echo "⌛ Attente du frontend..."
-          sleep 10
-          curl --fail http://localhost:4200 || (echo "❌ Frontend injoignable" && exit 1)
+      - name: 🧪 Run containers with Docker Compose
+        run: docker compose up -d
 
       - name: ✅ Check Backend Health
         run: |
