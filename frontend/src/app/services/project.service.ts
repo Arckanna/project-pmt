@@ -27,4 +27,8 @@ export class ProjectService {
   getProjectById(id: number): Observable<Project> {
     return this.http.get<Project>(`http://localhost:8080/api/projects/${id}`);
   }
+
+  getProjectWithRole(projectId: number, email: string): Observable<Project> {
+    return this.http.get<Project>(`http://localhost:8080/api/projects/${projectId}/user/${email}`);
+  }
 }

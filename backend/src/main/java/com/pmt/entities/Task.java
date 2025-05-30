@@ -12,6 +12,9 @@ public class Task {
 
     private String description;
 
+    @ManyToOne
+    private User assignedTo;
+
     @Column(name = "created_date")
     private LocalDate createdDate;
 
@@ -20,6 +23,9 @@ public class Task {
 
     @ManyToOne(optional = false)
     private Project project;
+
+    public User getAssignedTo() { return assignedTo; }
+    public void setAssignedTo(User assignedTo) { this.assignedTo = assignedTo; }
 
     public Task() {}
 

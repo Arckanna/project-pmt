@@ -18,7 +18,8 @@ export class ProjectDetailsComponent implements OnInit {
   newTask: Task = {
     description: '',
     createdDate: '',
-    dueDate: ''
+    dueDate: '',
+    assignedTo: { email: '' }
   };
 
   showTaskForm = false;
@@ -30,18 +31,23 @@ export class ProjectDetailsComponent implements OnInit {
 
   showMemberForm = false;
 
-  constructor(private route: ActivatedRoute,private projectService: ProjectService, private taskService: TaskService, private projectUserService: ProjectUserService) {}
+  constructor(private route: ActivatedRoute,private projectService: ProjectService, private taskService: TaskService,
+              private projectUserService: ProjectUserService) {}
 
   project: Project | null = null;
   tasks: Task[] = [];
   members: ProjectMember[] = [];
 
+
+
   ngOnInit(): void {
     this.projectId = Number(this.route.snapshot.paramMap.get('id'));
 
-    this.projectService.getProjectById(this.projectId).subscribe({
-      next: data => this.project = data
-
+    this.projectService.getProjectWithRole(this.projectId, 'valerie@example.com').subscribe({
+      next: data => {
+        this.project = data;
+        console.log("Projet avec rôle :", this.project);
+      }
     });
 
     this.taskService.getTasksByProject(this.projectId).subscribe({
@@ -63,7 +69,7 @@ export class ProjectDetailsComponent implements OnInit {
     this.taskService.createTask(this.projectId, taskToCreate).subscribe({
       next: () => {
         this.tasks.push(taskToCreate);
-        this.newTask = { description: '', createdDate: '', dueDate: '' };
+        this.newTask = { description: '', createdDate: '', dueDate: '' ,assignedTo:{email:''}};
         this.showTaskForm = false;
       },
       error: (err) => console.error('Erreur création tâche', err)

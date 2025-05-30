@@ -102,4 +102,27 @@ public class ProjectController {
 
         return ResponseEntity.ok(projectUserRepository.findByProject(project));
     }
+
+    @GetMapping("/{projectId}/user/{email}")
+    public ResponseEntity<ProjectWithRoleDTO> getProjectWithRole(@PathVariable Long projectId, @PathVariable String email) {
+        Project project = projectRepository.findById(projectId).orElse(null);
+        User user = userRepository.findByEmail(email).orElse(null);
+
+        if (project == null || user == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        ProjectUser projectUser = projectUserRepository.findByProjectAndUser(project, user).orElse(null);
+        if (projectUser == null) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+        }
+
+        return ResponseEntity.ok(new ProjectWithRoleDTO(
+                project.getId(),
+                project.getName(),
+                project.getDescription(),
+                project.getStartDate(),
+                projectUser.getRole().name()
+        ));
+    }
 }

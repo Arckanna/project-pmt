@@ -2,6 +2,7 @@ package com.pmt.controllers;
 
 import com.pmt.entities.Project;
 import com.pmt.entities.Task;
+import com.pmt.entities.User;
 import com.pmt.repositories.ProjectRepository;
 import com.pmt.repositories.ProjectUserRepository;
 import com.pmt.repositories.TaskRepository;
@@ -18,10 +19,12 @@ public class TaskController {
 
     private final ProjectRepository projectRepository;
     private final TaskRepository taskRepository;
+    private final UserRepository userRepository;
 
-    public TaskController(ProjectRepository projectRepository, TaskRepository taskRepository) {
+    public TaskController(ProjectRepository projectRepository, TaskRepository taskRepository, UserRepository userRepository) {
         this.projectRepository = projectRepository;
         this.taskRepository = taskRepository;
+        this.userRepository = userRepository;
     }
 
     @GetMapping("/api/projects/{projectId}/tasks")
@@ -38,6 +41,9 @@ public class TaskController {
         if (project == null) return ResponseEntity.notFound().build();
 
         task.setProject(project);
+        String assignedEmail = task.getAssignedTo() != null ? task.getAssignedTo().getEmail() : null;
+        User assignedUser = (assignedEmail != null) ? userRepository.findByEmail(assignedEmail).orElse(null) : null;
+        task.setAssignedTo(assignedUser);
         return ResponseEntity.ok(taskRepository.save(task));
     }
 }
