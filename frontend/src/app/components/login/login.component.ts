@@ -13,7 +13,10 @@ export class LoginComponent {
   message = '';
   success = false;
 
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(private userService: UserService, private router: Router)
+  {
+
+  }
 
   onLogin() {
     this.userService.login(this.email, this.password).subscribe({
