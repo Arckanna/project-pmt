@@ -36,15 +36,30 @@ public class TaskController {
     }
 
     @PostMapping("/api/projects/{projectId}/tasks")
-    public ResponseEntity<Task> createTask(@PathVariable Long projectId, @RequestBody Task task) {
+    public ResponseEntity<?> createTask(@PathVariable Long projectId, @RequestBody Task task) {
         Project project = projectRepository.findById(projectId).orElse(null);
-        if (project == null) return ResponseEntity.notFound().build();
+        if (project == null) {
+            return ResponseEntity.badRequest().body("Projet introuvable"); // ou ResponseEntity.notFound().build()
+        }
 
         task.setProject(project);
-        String assignedEmail = task.getAssignedTo() != null ? task.getAssignedTo().getEmail() : null;
-        User assignedUser = (assignedEmail != null) ? userRepository.findByEmail(assignedEmail).orElse(null) : null;
-        task.setAssignedTo(assignedUser);
-        return ResponseEntity.ok(taskRepository.save(task));
+
+        if (task.getAssignedTo() != null && task.getAssignedTo().getEmail() != null) {
+            String email = task.getAssignedTo().getEmail();
+            User user = userRepository.findByEmail(email).orElse(null);
+            if (user == null) {
+                return ResponseEntity.badRequest().body("Utilisateur assigné introuvable");
+            }
+            task.setAssignedTo(user);
+        }
+
+        if (task.getDueDate() != null && task.getCreatedDate() != null &&
+                task.getDueDate().isBefore(task.getCreatedDate())) {
+            return ResponseEntity.badRequest().body("La date limite est antérieure à la date de création");
+        }
+
+        Task saved = taskRepository.save(task);
+        return ResponseEntity.ok(saved);
     }
 }
 

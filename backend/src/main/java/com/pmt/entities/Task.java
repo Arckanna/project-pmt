@@ -29,18 +29,57 @@ public class Task {
 
     public Task() {}
 
-    public Task(String description, LocalDate createdDate, LocalDate dueDate, Project project) {
+    public Task(String description, LocalDate createdDate, LocalDate dueDate, Project project, User assignedTo) {
         this.description = description;
         this.createdDate = createdDate;
         this.dueDate = dueDate;
         this.project = project;
+        this.assignedTo = assignedTo;
     }
 
     public void setProject(Project project) {
         this.project = project;
     }
-
     public Project getProject() {
         return project;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    public String getDescription() {
+        return description;
+    }
+
+    public void setCreatedDate(LocalDate createdDate) {
+        this.createdDate = createdDate;
+    }
+    public LocalDate getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setDueDate(LocalDate dueDate) {
+        this.dueDate = dueDate;
+    }
+    public LocalDate getDueDate() {
+        return dueDate;
+    }
+
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "Task{" +
+                "id=" + id +
+                ", description='" + description + '\'' +
+                ", createdDate=" + createdDate +
+                ", dueDate=" + dueDate +
+                ", assignedTo=" + (assignedTo != null ? assignedTo.getEmail() : "null") +
+                '}';
     }
 }
