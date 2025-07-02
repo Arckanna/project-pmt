@@ -9,6 +9,19 @@
     <div *ngIf="tasks.length > 0; else noTasks">
       <ul class="list-group mt-3">
         <li class="list-group-item" *ngFor="let task of tasks">
+          <div class="mt-2" *ngIf="task.id">
+            <button class="btn btn-sm btn-outline-info" (click)="loadHistory(task.id)">
+              Afficher l'historique
+            </button>
+            <ul class="list-group mt-2" *ngIf="historyMap[task.id]">
+              <li class="list-group-item" *ngFor="let entry of historyMap[task.id]">
+                <small>
+                  [{{ entry.timestamp | date:'short' }}] {{ entry.performedBy }} - {{ entry.action }}
+                </small>
+              </li>
+            </ul>
+          </div>
+
           <strong>{{ task.description }}</strong><br>
           Créée le : {{ task.createdDate | date:'longDate' }}<br>
          <p>À rendre pour : {{ task.dueDate | date:'longDate' }}</p>
@@ -93,4 +106,5 @@
       </form>
     </div>
   </div>
+
 </div>

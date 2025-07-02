@@ -6,6 +6,7 @@ import { TaskService } from '../../services/task.service';
 import { Task } from '../../models/task.model';
 import {ProjectUserService} from "../../services/project-user.service";
 import { ProjectMember } from '../../models/project-member.model';
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-project-details',
@@ -31,14 +32,27 @@ export class ProjectDetailsComponent implements OnInit {
 
   showMemberForm = false;
 
-  constructor(private route: ActivatedRoute,private projectService: ProjectService, private taskService: TaskService,
-              private projectUserService: ProjectUserService) {}
+  historyMap: { [taskId: number]: any[] } = {};
+
+  constructor(
+    private route: ActivatedRoute,
+    private projectService: ProjectService,
+    private taskService: TaskService,
+    private projectUserService: ProjectUserService,
+    private http: HttpClient
+  ) {}
 
   project: Project | null = null;
   tasks: Task[] = [];
   members: ProjectMember[] = [];
 
-
+  loadHistory(taskId: number) {
+    if (this.historyMap[taskId]) return; // ne recharge pas si déjà chargé
+    this.http.get<any[]>(`/api/tasks/${taskId}/history`).subscribe({
+      next: (data) => this.historyMap[taskId] = data,
+      error: (err) => console.error('Erreur chargement historique', err)
+    });
+  }
 
   ngOnInit(): void {
     this.projectId = Number(this.route.snapshot.paramMap.get('id'));

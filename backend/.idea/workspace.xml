@@ -5,23 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="22c401c2-acd0-4f4f-b638-51600cb6e913" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/pmt/entities/TaskHistory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/pmt/repositories/TaskHistoryRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/pmt/services/EmailNotificationService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/app.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/app.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/components/home/home.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/components/home/home.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/components/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/components/login/login.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/components/login/login.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/components/login/login.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/components/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/components/login/login.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/components/navbar/navbar.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/components/navbar/navbar.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/components/project-details/project-details.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/components/project-details/project-details.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/components/project-form/project-form.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/components/project-form/project-form.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/components/projects/projects.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/components/projects/projects.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/components/user-form/user-form.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/components/user-form/user-form.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/services/project-user.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/services/project-user.service.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/services/project.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/services/project.service.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/services/task.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/services/task.service.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/services/user.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/services/user.service.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pmt/controllers/TaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pmt/controllers/TaskController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/pmt/controllers/TaskControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/pmt/controllers/TaskControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/components/project-details/project-details.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/components/project-details/project-details.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/components/project-details/project-details.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/components/project-details/project-details.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,8 +24,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -51,6 +44,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "JUnit.TaskControllerTest.createTask_shouldSucceedWithoutAssignedUser.executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -60,7 +54,7 @@
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/FormationIscod/EtudeDeCas/PMT/project-pmt",
+    "last_opened_file_path": "D:/FormationIscod/EtudeDeCas/PMT/project-pmt/backend",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -69,11 +63,27 @@
     "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "settings.editor.selected.configurable": "com.intellij.platform.ide.impl.presentationAssistant.PresentationAssistantConfigurable",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.TaskControllerTest.createTask_shouldSucceedWithoutAssignedUser">
+    <configuration name="TaskControllerTest.createTask_shouldSucceedWithoutAssignedUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="backend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.pmt.controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.pmt.controllers" />
+      <option name="MAIN_CLASS_NAME" value="com.pmt.controllers.TaskControllerTest" />
+      <option name="METHOD_NAME" value="createTask_shouldSucceedWithoutAssignedUser" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="BackendApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="backend" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.pmt.BackendApplication" />
@@ -81,6 +91,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.TaskControllerTest.createTask_shouldSucceedWithoutAssignedUser" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -110,10 +125,25 @@
       <workItem from="1749023694155" duration="128000" />
       <workItem from="1749024437455" duration="701000" />
       <workItem from="1749025944631" duration="7715000" />
+      <workItem from="1749621257454" duration="2458000" />
+      <workItem from="1751437736055" duration="7628000" />
+      <workItem from="1751460044355" duration="4400000" />
+      <workItem from="1751464525940" duration="4360000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/pmt/controllers/TaskControllerTest.java</url>
+          <line>119</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -8,6 +8,7 @@ import com.pmt.entities.User;
 import com.pmt.repositories.ProjectRepository;
 import com.pmt.repositories.TaskRepository;
 import com.pmt.repositories.UserRepository;
+import com.pmt.services.EmailNotificationService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +44,8 @@ public class TaskControllerTest {
     private Project project;
     private User user;
     private Task task;
+    @MockBean
+    private EmailNotificationService emailNotificationService;
 
     @BeforeEach
     void setup() {
@@ -120,7 +123,7 @@ public class TaskControllerTest {
 
     @Test
     void createTask_shouldReturnBadRequest_ifProjectNotFound() throws Exception {
-        when(projectRepository.findById(1L)).thenReturn(Optional.empty());
+        when(projectRepository.findById(10L)).thenReturn(Optional.empty());
 
         String json = objectMapper.writeValueAsString(task);
 
@@ -162,5 +165,28 @@ public class TaskControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(json))
                 .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    void shouldSendEmailWhenTaskIsAssigned() throws Exception {
+        // Arrange
+        when(projectRepository.findById(1L)).thenReturn(Optional.of(project));
+        when(userRepository.findByEmail("valerie@example.com")).thenReturn(Optional.of(user));
+        when(taskRepository.save(any(Task.class))).thenReturn(task);
+
+        String json = objectMapper.writeValueAsString(task);
+
+        // Act + Assert
+        mockMvc.perform(post("/api/projects/1/tasks")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(json))
+                .andExpect(status().isOk());
+
+        // Email envoyé ?
+        verify(emailNotificationService, times(1)).sendTaskAssignmentNotification(
+                eq("valerie@example.com"),
+                eq("Task 1"),
+                eq("Projet ID: 1")
+        );
     }
 }
