@@ -1,7 +1,9 @@
 package com.pmt.entities;
 
 import jakarta.persistence.*;
-
+/**
+ * Représente un utilisateur avec ses informations d'identification et son profil.
+ */
 @Entity
 @Table(name = "users")
 public class User {

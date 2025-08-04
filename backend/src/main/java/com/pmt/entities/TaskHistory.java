@@ -3,7 +3,9 @@ package com.pmt.entities;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
-
+/**
+ * Enregistre une action effectuée sur une tâche {@link} à des fins d'audit.
+ */
 @Entity
 public class TaskHistory {
 

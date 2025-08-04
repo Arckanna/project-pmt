@@ -3,6 +3,10 @@ package com.pmt.entities;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 
+/**
+ * Représente un projet au sein de l'application.
+ * Stocke les métadonnées de base telles que le nom, la description et la date de début.
+ */
 @Entity
 @Table(name = "projects")
 

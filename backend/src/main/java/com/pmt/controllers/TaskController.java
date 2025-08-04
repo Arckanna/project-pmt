@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * Contrôleur exposant les points d’accès liés à la gestion des tâches.
+ */
 @RestController
 @CrossOrigin(origins = "*")
 public class TaskController {
@@ -33,6 +36,12 @@ public class TaskController {
         this.taskHistoryRepository = taskHistoryRepository;
     }
 
+    /**
+     * Récupére toutes les tâches associées à un projet donné.
+     *
+     * @param projectId: identifiant du projet.
+     * @return: 200 avec la liste des tâches ou 404 si le projet est introuvable.
+     */
     @GetMapping("/api/projects/{projectId}/tasks")
     public ResponseEntity<List<Task>> getTasksForProject(@PathVariable Long projectId) {
         Project project = projectRepository.findById(projectId).orElse(null);
@@ -41,6 +50,12 @@ public class TaskController {
         return ResponseEntity.ok(taskRepository.findByProject(project));
     }
 
+    /**
+     * Récupére les entrées d'historique d'une tâche spécifique.
+     *
+     * @param taskId: identifiant de la tâche.
+     * @return 200 avec l'historique ou 404 si la tâche n'existe pas.
+     */
     @GetMapping("/api/tasks/{taskId}/history")
     public ResponseEntity<List<TaskHistory>> getTaskHistory(@PathVariable Long taskId) {
         Task task = taskRepository.findById(taskId).orElse(null);
@@ -51,6 +66,13 @@ public class TaskController {
         return ResponseEntity.ok(historyList);
     }
 
+    /**
+     * Crée une tâche pour un projet et éventuellement l'attribuer à un utilisateur.
+     *
+     * @param projectId: identifiant du projet.
+     * @param task: détails de la tâche, y compris l'utilisateur assigné (facultatif) et la date d'échéance.
+     * @return: 200 avec la tâche créée, ou 400 si les validations échouent ou si le projet est introuvable.
+     */
     @PostMapping("/api/projects/{projectId}/tasks")
     public ResponseEntity<?> createTask(@PathVariable Long projectId, @RequestBody Task task) {
         Project project = projectRepository.findById(projectId).orElse(null);

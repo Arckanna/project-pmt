@@ -6,6 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="22c401c2-acd0-4f4f-b638-51600cb6e913" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pmt/controllers/ProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pmt/controllers/ProjectController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pmt/controllers/TaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pmt/controllers/TaskController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pmt/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pmt/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pmt/entities/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pmt/entities/Project.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pmt/entities/ProjectUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pmt/entities/ProjectUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pmt/entities/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pmt/entities/Task.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pmt/entities/TaskHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pmt/entities/TaskHistory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pmt/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pmt/entities/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/services/project-user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/services/project-user.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/services/project.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/services/project.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/services/task.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/services/task.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/services/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/services/user.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +136,7 @@
       <workItem from="1753688330224" duration="3994000" />
       <workItem from="1753858941798" duration="1112000" />
       <workItem from="1753860984668" duration="4838000" />
-      <workItem from="1754289664740" duration="3404000" />
+      <workItem from="1754289664740" duration="8848000" />
     </task>
     <servers />
   </component>
@@ -136,7 +148,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/com/pmt/controllers/TaskControllerTest.java</url>
-          <line>119</line>
+          <line>123</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

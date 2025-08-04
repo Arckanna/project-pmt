@@ -2,6 +2,9 @@ package com.pmt.entities;
 
 import jakarta.persistence.*;
 
+/**
+ * Entité reliant un utilisateur {@link} à un projet {@link} avec un rôle spécifique.
+ */
 @Entity
 @Table(name = "project_users")
 public class ProjectUser {

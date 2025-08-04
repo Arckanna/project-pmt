@@ -7,6 +7,7 @@ import {Project} from "../models/project.model";
 @Injectable({
   providedIn: 'root'
 })
+// Point d'accés de l'API: api/projects/{projectId}/tasks
 export class TaskService {
   private baseUrl = 'http://localhost:8080/api/projects';
 

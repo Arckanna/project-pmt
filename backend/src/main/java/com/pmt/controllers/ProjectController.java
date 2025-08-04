@@ -14,6 +14,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Contrôleur REST fournissant des points d'acces pour gérer les projets et leurs membres.
+ * Il permet aux clients de lister les projets d'un utilisateur, d'en créer de nouveaux et de gérer les membres du projet.
+ */
 @RestController
 @RequestMapping("/api/projects")
 @CrossOrigin(origins = "*")
@@ -29,6 +33,12 @@ public class ProjectController {
         this.projectUserRepository = projectUserRepository;
     }
 
+    /**
+     * Récupére tous les projets associés à un utilisateur identifié par e-mail.
+     *
+     * @param email: e-mail unique de l'utilisateur.
+     * @return: 200 avec la liste des projets et des rôles, ou 404 si l'utilisateur est introuvable.
+     */
     @GetMapping("/user/{email}")
     public ResponseEntity<List<ProjectWithRoleDTO>> getProjectsForUser(@PathVariable String email) {
         User user = userRepository.findByEmail(email).orElse(null);
@@ -51,6 +61,12 @@ public class ProjectController {
         return ResponseEntity.ok(result);
     }
 
+    /**
+     * Récupére un projet unique par son identifiant.
+     *
+     * @param id: identifiant du projet à récupérer.
+     * @return: 200 avec le projet s'il est trouvé, sinon 404.
+     */
     @GetMapping("/{id}")
     public ResponseEntity<Project> getProjectById(@PathVariable Long id) {
         return projectRepository.findById(id)
@@ -58,6 +74,12 @@ public class ProjectController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    /**
+     * Crée un nouveau projet et associer le créateur comme membre administrateur.
+     *
+     * @param project: informations du projet à conserver.
+     * @return: 200 si le projet est créé ou 400 si le créateur est introuvable.
+     */
     @PostMapping
     public ResponseEntity<?> createProject(@RequestBody Project project) {
         // 1. Créer le projet
@@ -76,6 +98,13 @@ public class ProjectController {
         return ResponseEntity.ok(savedProject);
     }
 
+    /**
+     * Ajoute un membre à un projet.
+     *
+     * @param projectId: identifiant du projet.
+     * @param data: corps de la requête contenant l'adresse e-mail de l'utilisateur et le rôle souhaité.
+     * @return: 200 lorsque le membre est ajouté, ou 400 si le projet ou l'utilisateur est introuvable.
+     */
     @PostMapping("/{projectId}/members")
     public ResponseEntity<?> addMember(@PathVariable Long projectId, @RequestBody Map<String, String> data) {
         String email = data.get("email");
@@ -95,6 +124,13 @@ public class ProjectController {
         return ResponseEntity.ok("Utilisateur ajouté avec succès.");
     }
 
+
+    /**
+     * Liste tous les membres d'un projet donné.
+     *
+     * @param projectId: identifiant du projet.
+     * @return: 200 avec la liste des membres ou 404 si le projet est introuvable.
+     */
     @GetMapping("/{projectId}/members")
     public ResponseEntity<List<ProjectUser>> getProjectMembers(@PathVariable Long projectId) {
         Project project = projectRepository.findById(projectId).orElse(null);
@@ -103,6 +139,13 @@ public class ProjectController {
         return ResponseEntity.ok(projectUserRepository.findByProject(project));
     }
 
+    /**
+     * Récupére un projet et le rôle d'un utilisateur spécifique au sein de ce projet.
+     *
+     * @param projectId: identifiant du projet.
+     * @param email: adresse email de l'utilisateur.
+     * @return: 200 avec les détails du projet et le rôle de l'utilisateur, 404 si le projet ou l'utilisateur est introuvable, ou 403 si l'utilisateur n'est pas membre.
+     */
     @GetMapping("/{projectId}/user/{email}")
     public ResponseEntity<ProjectWithRoleDTO> getProjectWithRole(@PathVariable Long projectId, @PathVariable String email) {
         Project project = projectRepository.findById(projectId).orElse(null);

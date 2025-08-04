@@ -3,6 +3,10 @@ package com.pmt.entities;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 
+/**
+ * Représente une tâche appartenant à un projet.
+ * Les tâches peuvent éventuellement être attribuées à un utilisateur et suivre leurs dates de création et d'échéance.
+ */
 @Entity
 @Table(name = "tasks")
 public class Task {

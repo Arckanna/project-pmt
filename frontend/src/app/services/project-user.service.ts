@@ -6,6 +6,7 @@ import {ProjectMember} from "../models/project-member.model";
 @Injectable({
   providedIn: 'root'
 })
+// Point d'accés de l'API: api/projects/{projectId}/members
 export class ProjectUserService {
   private baseUrl = 'http://localhost:8080/api/projects';
 

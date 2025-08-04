@@ -9,6 +9,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Contrôleur exposant les points d'accés pour la gestion et l'authentification des utilisateurs.
+ * Fournit des opérations pour créer des utilisateurs, les répertorier et effectuer une vérification de connexion de base.
+ */
 @RestController
 @RequestMapping("/api/users")
 @CrossOrigin(origins = "*")
@@ -21,22 +25,43 @@ public class UserController {
         System.out.println(">>> UserController instancié <<<");
     }
 
+    /**
+     * Point d'accés afin de verifier l'état de santé.
+     *
+     * @return: 200 avec la chaîne "pong" pour indiquer que le service est en cours d'exécution.
+     */
     @GetMapping("/ping")
     public String ping() {
         return "pong";
     }
 
+    /**
+     * Crée un nouvel utilisateur.
+     *
+     * @param user: entité utilisateur contenant au moins une adresse e-mail et un mot de passe.
+     * @return: 200 avec l'utilisateur créé.
+     */
     @PostMapping
     public User createUser(@RequestBody User user) {
         System.out.println(">>> POST reçu <<< " + user.getEmail());
         return userRepository.save(user);
     }
-
+    /**
+     * Récupére tous les utilisateurs enregistrés dans le système.
+     *
+     * @return 200 avec la liste complète des utilisateurs.
+     */
     @GetMapping
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
 
+    /**
+     * Requete l'identification d'un utilisateur avec les identifiants fournis.
+     *
+     * @param : mappage d'identifiants contenant les clés "email"  et "password" .
+     * @return: 200 si les identifiants correspondent à un utilisateur, ou 401 si les identifiants sont incorrects.
+     */
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody Map<String, String> credentials) {
         String email = credentials.get("email");

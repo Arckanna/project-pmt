@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+// Point d'accés de l'API: api/users
 export class UserService {
 
   private apiUrl = 'http://localhost:8080/api/users';
