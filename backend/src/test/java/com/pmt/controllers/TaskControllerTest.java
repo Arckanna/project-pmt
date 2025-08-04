@@ -7,6 +7,7 @@ import com.pmt.entities.Task;
 import com.pmt.entities.User;
 import com.pmt.repositories.ProjectRepository;
 import com.pmt.repositories.TaskRepository;
+import com.pmt.repositories.TaskHistoryRepository;
 import com.pmt.repositories.UserRepository;
 import com.pmt.services.EmailNotificationService;
 import org.junit.jupiter.api.BeforeEach;
@@ -39,6 +40,9 @@ public class TaskControllerTest {
 
     @MockBean
     private UserRepository userRepository;
+
+    @MockBean
+    private TaskHistoryRepository taskHistoryRepository;
 
     private ObjectMapper objectMapper;
     private Project project;
