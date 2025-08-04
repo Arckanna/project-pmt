@@ -1,4 +1,4 @@
-# 📌 PMT Demo – Étude de cas Spring Boot
+#  PMT Demo – Étude de cas Spring Boot
 
 [![CI - Build and Test](https://github.com/Arckanna/project-pmt/actions/workflows/ci.yml/badge.svg)] (https://github.com/Arckanna/project-pmt/actions/workflows/ci.yml)
 
@@ -6,7 +6,7 @@ Projet d’étude de cas développé dans le cadre du bloc de compétences *Int�
 
 ---
 
-## 🧱 Architecture du projet
+##  Architecture du projet
 
 Ce dépôt regroupe deux modules principaux :
 - `backend/` – API REST développée avec Spring Boot (Java)
@@ -16,7 +16,7 @@ L'application suit une architecture client-serveur, avec séparation claire des 
 
 ---
 
-## 🚀 Objectif
+##  Objectif
 
 Développer une application de gestion de projet permettant :
 - La création d’utilisateurs
@@ -25,7 +25,7 @@ Développer une application de gestion de projet permettant :
 
 ---
 
-## 🛠️ Stack technique
+##  Stack technique
 
 - **Java 17**
 - **Spring Boot 3.4**
@@ -37,7 +37,7 @@ Développer une application de gestion de projet permettant :
 
 ---
 
-## 🧑‍💻 Installation locale
+##  Installation locale
 
 ### Prérequis
 
@@ -59,7 +59,7 @@ Importer la collection `postman/pmt-demo-collection.json` et tester les routes d
 
 ---
 
-## 📂 Structure actuelle du backend
+##  Structure actuelle du backend
 
 ```
 src/
@@ -74,7 +74,7 @@ src/
 
 ---
 
-## 📁 Organisation du dépôt
+##  Organisation du dépôt
 
 ```
 project-pmt/
@@ -87,23 +87,23 @@ project-pmt/
 
 ---
 
-## 🔄 Évolution prévue
+##  Évolution prévue
 
 Ce projet a pour ambition de devenir une **plateforme complète de gestion de projet collaboratif**. Les prochaines étapes incluent :
 
-- ✅ Création de projets par les utilisateurs
-- ✅ Ajout et attribution de tâches
-- ✅ Suivi de l’historique des modifications
-- ✅ Gestion des rôles (admin, membre, observateur)
-- ✅ Intégration d’une base PostgreSQL pour la persistance
-- 🔄 Interface frontend en Angular (à venir)
-- 🔄 CI/CD et déploiement Dockerisé (à venir)
+-  Création de projets par les utilisateurs
+-  Ajout et attribution de tâches
+-  Suivi de l’historique des modifications
+-  Gestion des rôles (admin, membre, observateur)
+-  Intégration d’une base PostgreSQL pour la persistance
+-  Interface frontend en Angular (à venir)
+-  CI/CD et déploiement Dockerisé (à venir)
 
 Chaque étape sera ajoutée avec des commits dédiés et documentée dans ce `README`.
 
 ---
 
-## 🧪 Tester l’API actuelle
+##  Tester l’API actuelle
 
 Importer la collection Postman fournie dans le dossier `postman/`  
 Endpoints disponibles :
@@ -116,7 +116,7 @@ Endpoints disponibles :
 
 ---
 
-## 🧰 Configuration base de données
+##  Configuration base de données
 
 Par défaut :
 ```properties
@@ -132,7 +132,7 @@ spring.datasource.password=password
 
 ---
 
-## ✅ Lancer l’application
+##  Lancer l’application
 
 ```bash
 ./mvnw spring-boot:run
@@ -140,6 +140,6 @@ spring.datasource.password=password
 
 ---
 
-## 🙋‍♀️ Développé par
+##  Développé par
 
 Valérie Lecoeur – avril 2025
